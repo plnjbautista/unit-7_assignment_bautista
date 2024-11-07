@@ -27,7 +27,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<Map<String, dynamic>> getDisneyData() async {
     String url = 'https://api.disneyapi.dev/character';
     Response response = await http.get(Uri.parse(url));
-    print(response.statusCode);
     Map<String, dynamic> data = json.decode(response.body);
     return data;
   }
@@ -92,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 errorBuilder: (context, error, stackTrace) =>
                                     const Icon(
                                       Icons.favorite,
-                                    ) // If there is no cover, this will make it display a heart icon instead <3
+                                    ) // If there is an error calling the image, this will make it display a heart icon instead <3
                                 ),
                           ),
                         ),
